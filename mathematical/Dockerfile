@@ -12,4 +12,8 @@ RUN wget http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/ap
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-CMD ["mvn", "-v"]
+RUN git clone https://github.com/pervage-qa/infra-assignment.git /usr/src/app/javaApp/
+
+RUN javac Calculations.java -d bin
+
+CMD ["java", "-cp", "bin", "mathematical.operations.Calculations"]
