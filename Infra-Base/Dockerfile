@@ -1,2 +1,2 @@
-FROM alpine
-ENTRYPOINT ["/bin/sh", "-c", "echo Hello !! I am Pervage. I have learned Docker, Kubernetes, postgres and bash scripting"]
+FROM openjdk:17-alpine
+CMD ["whoami","Hello!! I am Pervage"]
