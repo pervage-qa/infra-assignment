@@ -9,9 +9,10 @@ public class Calculations{
         System.out.println("Please enter numbers: ");
         double num1 = sc.nextInt();
         double num2 = sc.nextInt();
-
+        
+        Scanner sc2 = new Scanner(System.in);
         System.out.println("Please Enter Mathematic Operator(Add, Substract, Multiply, Divide): ");
-        String operator = sc.nextLine();
+        String operator = sc2.nextLine();
 
         if(operator.equalsIgnoreCase("Add")){
             result = num1+num2;
@@ -44,5 +45,6 @@ public class Calculations{
         }
         
         sc.close();
+        sc2.close();
       }
 }

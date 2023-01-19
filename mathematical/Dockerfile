@@ -16,6 +16,6 @@ WORKDIR /usr/src/app
 
 RUN git clone https://github.com/pervage-qa/infra-assignment.git /usr/src/app/javaApp/
 
-RUN javac Calculations.java -d bin
+RUN javac /usr/src/app/javaApp/mathematical/operations/Calculations.java -d bin
 
 CMD ["java", "-cp", "bin", "mathematical.operations.Calculations"]
