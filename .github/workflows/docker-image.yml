@@ -8,36 +8,36 @@ on:
 
 jobs:
 
-  build:
-
+  base:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Git Checkout
-
-    - uses: docker/build-push-action@v3
-    - name: Build the Base Image
+    -
+      uses: actions/checkout@v3
+      name: Git Checkout
+    -
+      uses: docker/build-push-action@v3
+      name: Build the Base Image
       run: |
         echo "${{ secrets.DOCKER_PWD }}" | docker login -u "pervage" --password-stdin
         docker build . --file base-image/Dockerfile --tag pervage/infra-base:latest
         docker push pervage/infra-base
-
-    - uses: docker/build-push-action@v3
-    - name: Build the Calculation Image
+    -
+      uses: docker/build-push-action@v3
+      name: Build the Calculation Image
       run: |
         echo "${{ secrets.DOCKER_PWD }}" | docker login -u "pervage" --password-stdin
         docker build . --file math-calculator/Dockerfile --tag pervage/calculations:latest
         docker push pervage/calculations
-
-    - uses: docker/build-push-action@v3
-    - name: Build the NPM Image
+    -
+      uses: docker/build-push-action@v3
+      name: Build the NPM Image
       run: |
         echo "${{ secrets.DOCKER_PWD }}" | docker login -u "pervage" --password-stdin
         docker build . --file node-hello/Dockerfile --tag pervage/node-hello:latest
         docker push pervage/node-hello
-
-    - uses: docker/build-push-action@v3
-    - name: Build the Multi Stage Image
+    -    
+      uses: docker/build-push-action@v3
+      name: Build the Multi Stage Image
       run: |
         echo "${{ secrets.DOCKER_PWD }}" | docker login -u "pervage" --password-stdin
         docker build . --file multi-stage/Dockerfile --tag pervage/multistage:latest
