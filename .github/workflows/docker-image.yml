@@ -137,7 +137,7 @@ jobs:
       name: Upload Artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: curl-output
+        name: output
         path: output-dns.txt
         retention-days: 90
   
