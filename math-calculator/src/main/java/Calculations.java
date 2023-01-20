@@ -1,18 +1,15 @@
-package mathematical.operations;
-
 import java.util.Scanner;
 
-public class Calculations{
+public class Calculations {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         double result = 0;
         System.out.println("Please enter numbers: ");
-        double num1 = sc.nextInt();
-        double num2 = sc.nextInt();
-        
-        Scanner sc2 = new Scanner(System.in);
+        double num1 = Double.parseDouble(sc.nextLine());
+        double num2 = Double.parseDouble(sc.nextLine());
+
         System.out.println("Please Enter Mathematic Operator(Add, Substract, Multiply, Divide): ");
-        String operator = sc2.nextLine();
+        String operator = sc.nextLine();
 
         if(operator.equalsIgnoreCase("Add")){
             result = num1+num2;
@@ -20,10 +17,10 @@ public class Calculations{
         }
         else if(operator.equalsIgnoreCase("Substract")){
             if(num1 > num2){
-                result = num1-num2; 
+                result = num1-num2;
             }
             else{
-                result = num2-num1; 
+                result = num2-num1;
             }
             System.out.println("Result of Substraction is: "+result);
         }
@@ -43,8 +40,7 @@ public class Calculations{
         else{
             System.out.println("Operator is not defined");
         }
-        
+
         sc.close();
-        sc2.close();
-      }
+    }
 }
