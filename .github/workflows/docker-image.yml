@@ -131,7 +131,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         context: busybox/.
-        push: true
+        push: false
         tags: pervage/busybox:latest
     -
       name: Upload Artifacts
