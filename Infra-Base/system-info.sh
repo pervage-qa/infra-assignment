@@ -1,5 +1,6 @@
 #!/bin/sh
 echo "Name: $NAME"
-echo "TECHSTACK: $TECHSTACK"
-echo "Capabilities: $(uname -a)"
-echo "System Info: $(neofetch)"
+echo "TECHNOLOGIES: $TECHNOLOGIES"
+echo "JAVA_HOME: $JAVA_HOME"
+echo "MAVEN_HOME: $MAVEN_HOME"
+neofetch
