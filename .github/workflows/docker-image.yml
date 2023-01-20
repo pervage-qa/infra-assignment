@@ -55,7 +55,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         context: math-calculator/.
-        push: false
+        push: true
         tags: pervage/calculation:latest
     -
       name: Scan for vulnerabilities
@@ -83,13 +83,13 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         context: npm/.
-        push: false
-        tags: pervage/node:latest
+        push: true
+        tags: pervage/npm-build:latest
     -
       name: Scan for vulnerabilities
       uses: crazy-max/ghaction-container-scan@v2
       with:
-        image: pervage/node:latest
+        image: pervage/npm-build:latest
   multi-stage:
     runs-on: ubuntu-latest
     steps:
@@ -110,7 +110,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         context: multi-stage/.
-        push: false
+        push: true
         tags: pervage/multistage:latest
     -
       name: Scan for vulnerabilities
@@ -131,7 +131,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         context: busybox/.
-        push: false
+        push: true
         tags: pervage/busybox:latest
     -
       name: Upload Artifacts
@@ -140,9 +140,4 @@ jobs:
         name: curl-output
         path: output-dns.txt
         retention-days: 90
-    -
-      name: Scan for vulnerabilities
-      uses: crazy-max/ghaction-container-scan@v2
-      with:
-        image: pervage/busybox:latest
   
