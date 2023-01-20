@@ -10,21 +10,21 @@ public class Calculations {
         double num1 = Double.parseDouble(sc.nextLine());
         double num2 = Double.parseDouble(sc.nextLine());
 
-        System.out.println("Please Enter Mathematic Operator(Add, Substract, Multiply, Divide): ");
+        System.out.println("Please Enter Mathematics Operator(Add, Subtract, Multiply, Divide): ");
         String operator = sc.nextLine();
 
         if(operator.equalsIgnoreCase("Add")){
             result = num1+num2;
             System.out.println("Result of Addition is: "+result);
         }
-        else if(operator.equalsIgnoreCase("Substract")){
+        else if(operator.equalsIgnoreCase("Subtract")){
             if(num1 > num2){
                 result = num1-num2;
             }
             else{
                 result = num2-num1;
             }
-            System.out.println("Result of Substraction is: "+result);
+            System.out.println("Result of Subtraction is: "+result);
         }
         else if(operator.equalsIgnoreCase("Multiply")){
             result = num1*num2;
@@ -37,7 +37,7 @@ public class Calculations {
             else{
                 result = num1/num2;
             }
-            System.out.println("Result of Multiplication is: "+result);
+            System.out.println("Result of Division is: "+result);
         }
         else{
             System.out.println("Operator is not defined");

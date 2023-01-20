@@ -1,12 +1,12 @@
 FROM pervage/infra-base:latest
 
-RUN mkdir -p /usr/src/
+RUN mkdir -p /usr/maven
 
-WORKDIR /usr/src/
+WORKDIR /usr/maven
 
-COPY math-calculator/pom.xml .
+COPY /math-calculator/pom.xml .
 
-COPY math-calculator/src ./usr/src
+COPY /math-calculator/src ./src
 
 RUN mvn package
 
