@@ -117,3 +117,32 @@ jobs:
       uses: crazy-max/ghaction-container-scan@v2
       with:
         image: pervage/multistage:latest
+  busybox:
+    runs-on: ubuntu-latest
+    steps:
+    -
+      uses: actions/checkout@v3
+      name: Git Checkout
+    -
+      name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+    -
+      name: Build Busybox Stage
+      uses: docker/build-push-action@v3
+      with:
+        context: busybox/.
+        push: false
+        tags: pervage/busybox:latest
+    -
+      name: Upload Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: curl-output
+        path: output-dns.txt
+        retention-days: 90
+    -
+      name: Scan for vulnerabilities
+      uses: crazy-max/ghaction-container-scan@v2
+      with:
+        image: pervage/busybox:latest
+  
