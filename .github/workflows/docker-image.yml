@@ -16,7 +16,7 @@ jobs:
     - name: Build the Base Image
       run: |
         echo "${{ secrets.DOCKER_PWD }}" | docker login -u "pervage" --password-stdin
-        docker build . --file infra-base/Dockerfile --tag pervage/infra-base:latest
+        docker build . --file base-image/Dockerfile --tag pervage/infra-base:latest
         docker push pervage/infra-base
 
     - uses: actions/checkout@v3

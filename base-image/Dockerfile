@@ -14,7 +14,7 @@ RUN wget http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/ap
   rm apache-maven-$MAVEN_VERSION-bin.tar.gz && \
   mv apache-maven-$MAVEN_VERSION /usr/lib/mvn
 
-COPY ./infra-base/system-info.sh .
+COPY ./base-image/system-info.sh .
 RUN chmod +x system-info.sh
 
 CMD [ "/bin/sh", "-c", "./system-info.sh" ]
