@@ -16,12 +16,12 @@ jobs:
     - name: Build the Base Image
       run: |
         echo "${{ secrets.DOCKER_PWD }}" | docker login -u "pervage" --password-stdin
-        docker build . -f ./infra-base/Dockerfile -t pervage/infra-base:latest
+        docker build . --file infra-base/Dockerfile --tag pervage/infra-base:latest
         docker push pervage/infra-base
 
     - uses: actions/checkout@v3
     - name: Build the Calculation Image
       run: |
         echo "${{ secrets.DOCKER_PWD }}" | docker login -u "pervage" --password-stdin
-        docker build . -f ./math-calculator/Dockerfile -t pervage/calculations:latest
+        docker build . --file math-calculator/Dockerfile --tag pervage/calculations:latest
         docker push pervage/calculations
