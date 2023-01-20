@@ -1,3 +1,5 @@
+package math.calculations;
+
 import java.util.Scanner;
 
 public class Calculations {

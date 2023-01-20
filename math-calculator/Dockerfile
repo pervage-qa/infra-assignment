@@ -1,10 +1,13 @@
 FROM pervage/infra-base:latest
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+RUN mkdir -p /usr/src/
 
-COPY ../mathematical /usr/src/app/
+WORKDIR /usr/src/
 
-RUN javac /usr/src/app/operations/Calculations.java -d bin
+COPY math-calculator/pom.xml .
 
-CMD ["java", "-cp", "bin", "mathematical.operations.Calculations"]
+COPY math-calculator/src ./usr/src
+
+RUN mvn package
+
+CMD [ "java", "-cp", "target/math-calculator-1.0-SNAPSHOT.jar", "math.calculations.Calculations" ]
