@@ -1,5 +1,5 @@
 FROM alpine AS base
-COPY /multi-stage/name.sh .
+COPY ./name.sh .
 RUN chmod +x name.sh
 
 FROM base

@@ -4,9 +4,9 @@ RUN mkdir -p /usr/maven
 
 WORKDIR /usr/maven
 
-COPY /math-calculator/pom.xml .
+COPY ./pom.xml .
 
-COPY /math-calculator/src ./src
+COPY /src ./src
 
 RUN mvn package
 

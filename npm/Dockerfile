@@ -4,11 +4,11 @@ RUN mkdir -p /usr/npm
 
 WORKDIR /usr/npm
 
-COPY /node-hello/package.json .
+COPY ./package.json .
 
 RUN npm install
 
-COPY /node-hello/index.js .
+COPY ./index.js .
 
 CMD ["npm", "start"]
 
