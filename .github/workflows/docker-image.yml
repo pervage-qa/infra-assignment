@@ -11,11 +11,17 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Docker image
+    - name: Build the Base Image
       run: |
         echo "${{ secrets.DOCKER_PWD }}" | docker login -u "pervage" --password-stdin
         docker build . -f infra-base/Dockerfile -t pervage/infra-base:latest
         docker push pervage/infra-base
+
+    - uses: actions/checkout@v3
+    - name: Build the Calculation Image
+      run: |
+        echo "${{ secrets.DOCKER_PWD }}" | docker login -u "pervage" --password-stdin
+        docker build . -f ./math-calculator/Dockerfile -t pervage/calculations:latest
+        docker push pervage/calculations
