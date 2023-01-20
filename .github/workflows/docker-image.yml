@@ -26,7 +26,7 @@ jobs:
       name: Build Base Image
       uses: docker/build-push-action@v3
       with:
-        context: /base-image/.
+        context: base-image/.
         push: true
         tags: pervage/infra-base:latest
     -
@@ -36,6 +36,7 @@ jobs:
         image: pervage/infra-base:latest
   maven:
     runs-on: ubuntu-latest
+    needs: base
     steps:
     -
       uses: actions/checkout@v3
@@ -53,7 +54,7 @@ jobs:
       name: Build Math Calculator
       uses: docker/build-push-action@v3
       with:
-        context: /math-calculator/.
+        context: math-calculator/.
         push: false
         tags: pervage/calculation:latest
     -
@@ -63,6 +64,7 @@ jobs:
         image: pervage/calculation:latest
   npm:
     runs-on: ubuntu-latest
+    needs: base
     steps:
     -
       uses: actions/checkout@v3
@@ -80,7 +82,7 @@ jobs:
       name: Build Node Module
       uses: docker/build-push-action@v3
       with:
-        context: /npm/.
+        context: npm/.
         push: false
         tags: pervage/node:latest
     -
@@ -107,7 +109,7 @@ jobs:
       name: Build Multi Stage
       uses: docker/build-push-action@v3
       with:
-        context: /multi-stage/.
+        context: multi-stage/.
         push: false
         tags: pervage/multistage:latest
     -
