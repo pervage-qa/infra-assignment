@@ -1,4 +1,5 @@
 FROM openjdk:17-alpine
+MAINTAINER Pervage Alam<pervage.alam@thoughtworks.com>
 
 ENV NAME Pervage
 ENV TECHNOLOGIES Bash,Docker,Kubernetes
